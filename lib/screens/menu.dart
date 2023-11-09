@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list/widgets/left_drawer.dart';
+import 'package:shopping_list/screens/shoplist_form.dart';
+
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -20,12 +23,16 @@ class MyHomePage extends StatelessWidget {
 
   @override
     Widget build(BuildContext context) {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              'Shopping List',
-            ),
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Shopping List',
           ),
+          backgroundColor: Colors.indigo,
+          foregroundColor: Colors.white,
+        ),
+      // Add drawer as parameter of the Scaffold widget
+      drawer: const LeftDrawer(),
           body: SingleChildScrollView(
             // Scrolling wrapper widget
             child: Padding(
@@ -91,6 +98,11 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("You pressed the ${item.name} button!")));
+
+          if (item.name == "Add Product") {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ShopFormPage()));
+          }
         },
         child: Container(
           // Container to hold Icon and Text
