@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/widgets/left_drawer.dart';
-import 'package:shopping_list/Widgets/shop_card.dart';
+import 'package:shopping_list/widgets/shop_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -8,17 +8,8 @@ class MyHomePage extends StatelessWidget {
   final List<ShopItem> items = [
     ShopItem("View Products", Icons.checklist),
     ShopItem("Add Product", Icons.add_shopping_cart),
-    ShopItem("Logout", Icons.logout),
+    ShopItem("Logout", Icons.logout)
   ];
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +21,6 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
-      // Add drawer as parameter of the Scaffold widget
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(
         // Scrolling wrapper widget
